@@ -1,4 +1,4 @@
-
+# Задача №8
 # Матрица 5x4 заполняется вводом с клавиатуры, кроме последних элементов строк.
 # Программа должна вычислять сумму введенных элементов каждой строки и записывать ее в последнюю ячейку строки.
 # В конце следует вывести полученную матрицу
@@ -7,16 +7,14 @@
 print('Введите значения с клавиатуры для заполнения матрицы: ')
 
 # Заполяем массив
-# array = []
-# for i in range(1, 5):
-#     dirty_array = input('Введите 4-е числа через пробел: ')
-#     row_list = dirty_array.split()
-#     array.append(row_list)
-#
-# # исходная матрица
-# print(array)
-# Решение в лоб, которое мне не нравится, не универсальное совсем
+array = []
+for i in range(1, 5):
+    dirty_array = input('Введите 4-е числа через пробел: ')
+    row_list = dirty_array.split()
+    array.append(row_list)
 
+# # исходная матрица
+# Решение №1, работает, но не нравится
 # col1 = 0
 # col2 = 0
 # col3 = 0
@@ -38,14 +36,22 @@ print('Введите значения с клавиатуры для запол
 # array.append(result)
 # print(array[4])
 
-
-array = [[1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4], []]
+## Решение №2
+# array = [[1, 2, 3, 4],
+#          [1, 2, 3, 4],
+#          [1, 2, 3, 4],
+#          [1, 2, 3, 4]
+#          ]
+# print(array)
+sum_col = 0
+result = []
+for row_idx, row in enumerate(array):
+    for val_idx, val in enumerate(row):
+        sum_col += int(array[val_idx][row_idx])
+    result.append(sum_col)
+    sum_col = 0
+array.append(result)
 print(array)
 
-for row_idx, row in enumerate(array):
-    # print(row)
-    for idx, val in enumerate(row):
-        array[4][0] = [array[4][0] + int(val) if idx == 0 else 0]
-        array[4][1] = [array[4][1] + int(val) if idx == 1 else 0]
 
-print(array[3][0])
+
