@@ -47,7 +47,7 @@ def sieve_atkin(n, idx):
     i = int(math.sqrt((n + 1) / 2))
 
     for x in range(1, i):
-    x2 = x ** 2
+        x2 = x ** 2
 
     for y in range(1, sqrt_n):
         y2 = y ** 2
